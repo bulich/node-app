@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">
+    <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2.664 6.4L8 9.6L16 4.8L8 0L0 4.8H8V6.4H2.664ZM0 6.4V12.8L1.6 11.024V7.36L0 6.4ZM8 16L4 13.6L2.4 12.64V7.84L8 11.2L13.6 7.84V12.64L8 16Z" fill="white"/>
+    </svg>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item {{#if isHome}}active{{/if}}">
+        <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item {{#if isCourses}}active{{/if}}">
+        <a class="nav-link" href="/courses">Курсы</a>
+      </li>
+      <li class="nav-item {{#if isAdd}}active{{/if}}">
+        <a class="nav-link" href="/add">Добавить курс</a>
+      </li>
+    </ul>
+    {{!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> --}}
+  </div>
+</nav>
