@@ -48,6 +48,24 @@ class Course {
       )
     })
   }
+
+  static async getById(id) {
+    let courses = await Course.getAll()
+    return courses.find(item => item.id == id)
+  }
+
+  static async update(course) {
+    let courses = await Course.getAll()
+    let index = courses.findIndex(item => item.id == course.id)
+    courses[index] = course
+    fs.writeFile(
+      path.join(__dirname, "..", "data", "courses.json"),
+      JSON.stringify(courses),
+      err => {
+        if (err) reject(err)
+      }
+    )
+  }
 }
 
 module.exports = Course
