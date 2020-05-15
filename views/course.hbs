@@ -1,10 +1,14 @@
 <div class="row justify-content-center">
-  <div class="col-md-4 col-12">
+  <div class="col-md-5 col-12">
       <div class="card">
         <img src="{{course.img}}" class="card-img-top" alt="{{course.title}}">
         <div class="card-body">
           <h5 class="card-title">{{course.title}}</h5>
-          <p class="card-text">{{course.price}}</p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Цена: {{course.price}}</li>
+              <li class="list-group-item">Добавлено: {{course.userId.name}}</li>
+              <li class="list-group-item">Контакты: {{course.userId.email}}</li>
+            </ul>
           <a href="#" class="btn btn-primary">Купить</a>
         </div>
       </div>

@@ -1,6 +1,5 @@
 <h1>Корзина</h1>
-
-{{#if card.courses.length}}
+{{#if card.length}}
   <table class="table" id="table">
     <thead class="thead-primary">
       <th scope="col">id</th>
@@ -8,9 +7,9 @@
       <th scope="col">Действие</th>
     </thead>
     <tbody id="row">
-    {{#each card.courses}}
+    {{#each card}}
       <tr>
-        <td><a href="/courses/{{id}}">Товар</a></td>
+      <td><a href="/courses/{{id}}">{{title}}</a></td>
         <td>{{count}}</td>
         <td><button data-id="{{id}}" class="btn btn-primary btn-remove">Удалить</button></td>
       </tr>
@@ -18,7 +17,7 @@
     </tbody>
     <tr class="thead-dark">
       <th colspan="2">Итого:</th>
-      <th scope="col" id="price">{{card.price}}</th>
+      <th scope="col" id="price">{{price}}</th>
     </tr>
   </table>
 {{else}}

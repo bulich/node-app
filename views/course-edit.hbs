@@ -1,5 +1,5 @@
 <form action="/courses/edit/" method="POST">
-  <input type="hidden" name="id" value="{{course.id}}">
+  <input type="hidden" name="id" value="{{course._id}}">
   <div class="form-group">
     <label for="name">Название курса</label>
     <input type="text" class="form-control" id="name" name="title" required value="{{course.title}}">
@@ -13,4 +13,9 @@
     <input type="text" class="form-control" id="img" name="img" required value="{{course.img}}">
   </div>
   <button type="submit" class="btn btn-success">Сохранить</button>
+</form>
+
+<form action="/courses/remove" method="POST" class="mt-3">
+  <input type="hidden" name="id" value="{{course._id}}">
+  <button type="submit" class="btn btn-danger">Удалить</button>
 </form>
