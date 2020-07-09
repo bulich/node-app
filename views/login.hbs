@@ -1,0 +1,51 @@
+{{#if error}}
+  <div class="alert alert-danger mb-3" role="alert">
+    {{error}}
+  </div>
+{{/if}}
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Войти</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Регистрация</a>
+  </li>
+</ul>
+<div class="tab-content my-3" id="myTabContent">
+  <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+    <form action="/auth/login" method="POST"> 
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Пароль</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Войти</button>
+    </form>
+  </div>
+
+
+  <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+    <form action="/auth/register" method="POST"> 
+      <div class="form-group">
+        <label for="remail">Email</label>
+        <input type="text" class="form-control" id="remail" name="remail" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Имя</label>
+        <input type="text" class="form-control" id="name" name="name">
+      </div>
+      <div class="form-group">
+        <label for="rpassword">Пароль</label>
+        <input type="rpassword" class="form-control" id="rpassword" name="rpassword" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm">Повторите пароль</label>
+        <input type="password" class="form-control" id="confirm" name="confirm" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Регистрация</button>
+    </form>
+  </div>
+</div>

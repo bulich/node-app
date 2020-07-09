@@ -9,6 +9,7 @@
           <h5 class="card-title">{{title}}</h5>
           <p class="card-text">{{price}}</p>
           <a href="/courses/{{_id}}" class="btn btn-primary">Подробнее</a>
+          {{#if @root.isAuth}}
           <a href="/courses/edit/{{_id}}?allow=true" class="btn btn-secondary">Редактировать</a>
           <div class="mt-3">
             <form action="/card/add" method="POST">
@@ -16,6 +17,7 @@
             <button type="submit" class="btn btn-success btn-block">Купить</button>
           </form>
         </div>
+        {{/if}}
         </div>
       </div>
     </div>

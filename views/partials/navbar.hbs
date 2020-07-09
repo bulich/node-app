@@ -16,12 +16,24 @@
       <li class="nav-item {{#if isCourses}}active{{/if}}">
         <a class="nav-link" href="/courses">Курсы</a>
       </li>
-      <li class="nav-item {{#if isAdd}}active{{/if}}">
-        <a class="nav-link" href="/add">Добавить курс</a>
-      </li>
-      <li class="nav-item {{#if isCard}}active{{/if}}">
-        <a class="nav-link" href="/card">Корзина</a>
-      </li>
+      {{#if isAuth}}
+        <li class="nav-item {{#if isAdd}}active{{/if}}">
+          <a class="nav-link" href="/add">Добавить курс</a>
+        </li>
+        <li class="nav-item {{#if isCard}}active{{/if}}">
+          <a class="nav-link" href="/card">Корзина</a>
+        </li>
+        <li class="nav-item {{#if isOrders}}active{{/if}}">
+          <a class="nav-link" href="/orders">Заказы</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/logout">Выйти</a>
+        </li>
+      {{else}}
+        <li class="nav-item {{#if isLogin}}active{{/if}}">
+          <a class="nav-link" href="/auth/login">Войти</a>
+        </li>
+      {{/if}}
     </ul>
     {{!-- <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

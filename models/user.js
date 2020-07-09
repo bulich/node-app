@@ -7,6 +7,9 @@ const UserSchema = new Schema({
   },
   name: {
     type: String,
+  },
+  password: {
+    type: String,
     required: true
   },
   cart: {
@@ -39,6 +42,23 @@ UserSchema.methods.addToCart = function(courseId) {
     })
   }
   this.cart = {items}
+  return this.save()
+}
+
+UserSchema.methods.removeFromCart = function(id) {
+  let items = [...this.cart.items]
+  const index = items.findIndex(c => c.courseId.toString() == id)
+    if (items[index].count > 1) {
+      items[index].count--
+    } else {
+     items =  items.filter(c => c.courseId.toString() != id)
+    }
+  this.cart = {items}
+  return this.save()
+}
+
+UserSchema.methods.clearCart = function() {
+  this.cart = {items: []}
   return this.save()
 }
 

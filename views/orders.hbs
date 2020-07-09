@@ -1,0 +1,15 @@
+<h1>Мои заказы</h1>
+{{#if orders.length}}
+    {{#each orders}}
+      <div class="card">
+        <div class="card-header">
+          Заказ <b>{{_id}}</b>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{date}}</li>
+        </ul>
+      </div>
+    {{/each}}
+{{else}}
+  Заказов пока нет
+{{/if}}

@@ -1,9 +1,8 @@
 const {Router} = require('express')
 const router = Router()
-const Card = require('../models/card')
-const User = require('../models/user')
+const auth = require('../middleware/auth.js')
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
   const card = await req.user.populate('cart.items.courseId').execPopulate()
   res.render('card', {
     title: 'Корзина',
@@ -13,14 +12,14 @@ router.get('/', async (req, res) => {
   })
 })
 
-router.post('/add', async (req, res) => {
+router.post('/add', auth, async (req, res) => {
 await req.user.addToCart(req.body.id)
 res.redirect('/card')
 })
 
-router.delete('/remove/:id', async (req, res) => {
-  const card = await Card.remove(req.params.id)
-  res.json(card)
+router.delete('/remove/:id', auth, async (req, res) => {
+  await req.user.removeFromCart(req.params.id)
+  res.redirect('/card#')
 })
 
 function computeCardPrice(cart) {

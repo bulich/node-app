@@ -20,6 +20,9 @@
       <th scope="col" id="price">{{price}}</th>
     </tr>
   </table>
+  <form action="/orders" method="post">
+    <button type="submit" class="btn btn-success">Сделать заказ</button>
+  </form>
 {{else}}
   Пусто
 {{/if}}
